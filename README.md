@@ -2,7 +2,7 @@
 Jenkins 增加 yarn, maven, npm, gradle, node 环境
 
 ## 拉取镜像
-docker pull registry.cn-shenzhen.aliyuncs.com/a852203465/jenkins:1.2.0
+docker pull registry.cn-shenzhen.aliyuncs.com/a852203465/jenkins:1.2
 
 ## 版本说明
  - JENKINS 2.346.3
