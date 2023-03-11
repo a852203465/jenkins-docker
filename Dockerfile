@@ -1,12 +1,12 @@
 # 基础镜像
-FROM jenkins/jenkins:2.346.3-lts-jdk8
+FROM jenkins/jenkins:2.387.1-lts-jdk11
 
 # 作者
 MAINTAINER Rong.Jia 852203465@qq.com
 
 ENV YARN_VERSION 1.22.19
 ENV NODE_VERSION 19.7.0
-ENV MVN_VERSION 3.8.4
+ENV MVN_VERSION 3.9.0
 ENV GRADLE_VERSION 8.0.1
 ENV DOCKER_COMPOSE_VERSION 2.16.0
 
@@ -19,18 +19,11 @@ RUN sed -i s/deb.debian.org/mirrors.aliyun.com/g /etc/apt/sources.list \
 
 # 安装依赖
 RUN apt-get update \
-#    && apt-get -y upgrade \
     && apt-get install -y sudo \
-    && rm -rf /var/lib/apt/lists/* \
     && apt-get install -y wget \
     && apt-get install -y unzip \
     && apt-get install -y git \
     && apt-get install -y curl
-#    && apt-get install -y locales  \
-#    && apt-get -y install ttf-wqy-zenhei  \
-#    && apt-get -y install xfonts-intl-chinese  \
-#    && dpkg-reconfigure locales  \
-#    && localedef -c -f UTF-8 -i zh_CN zh_CN.utf8
 
 RUN echo "jenkins ALL=NOPASSWD: ALL" >> /etc/sudoers
 
