@@ -15,6 +15,7 @@ services:
 #      - /var/run/docker.sock:/var/run/docker.sock
 #      - /usr/bin/docker:/usr/bin/docker
       - /data/jenkins/home:/var/jenkins_home
+      - ./conf/daemon.json:/etc/docker/daemon.json
 #      - /usr/lib64/libltdl.so.7:/usr/lib/x86_64-linux-gnu/libltdl.so.7
       - ./conf/settings.xml:/opt/apache-maven-3.8.4/conf/settings.xml
       - ./conf/defaults.js:/opt/node-v19.7.0-linux-x64/lib/node_modules/npm/lib/config/defaults.js
