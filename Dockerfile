@@ -1,5 +1,5 @@
 # 基础镜像
-FROM jenkins/jenkins:2.387.1-lts-jdk11
+FROM jenkins/jenkins:2.387.1-lts-jdk17
 
 # 作者
 MAINTAINER Rong.Jia 852203465@qq.com
