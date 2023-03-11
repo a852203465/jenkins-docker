@@ -14,6 +14,7 @@ ENV DOCKER_COMPOSE_VERSION 2.16.0
 USER root
 
 RUN sed -i s/deb.debian.org/mirrors.aliyun.com/g /etc/apt/sources.list \
+    && sed -i s/security.debian.org/mirrors.aliyun.com/g /etc/apt/sources.list \
     && ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime  \
     && echo 'Asia/Shanghai' >/etc/timezone
 
@@ -23,7 +24,13 @@ RUN apt-get update \
     && apt-get install -y wget \
     && apt-get install -y unzip \
     && apt-get install -y git \
-    && apt-get install -y curl
+    && apt-get install -y curl \
+    && apt-get install -y locales  \
+    && apt-get install -y libtool libltdl7 libltdl-dev \
+    && apt-get -y install ttf-wqy-zenhei  \
+    && apt-get -y install xfonts-intl-chinese  \
+    && dpkg-reconfigure locales  \
+    && localedef -c -f UTF-8 -i zh_CN zh_CN.utf8
 
 RUN echo "jenkins ALL=NOPASSWD: ALL" >> /etc/sudoers
 
