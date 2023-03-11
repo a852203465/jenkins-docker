@@ -1,30 +1,30 @@
 version: "3"
 services:
   jenkins:
-    image: registry.cn-shenzhen.aliyuncs.com/a852203465/jenkins:1.1.0
+    image: registry.cn-shenzhen.aliyuncs.com/a852203465/jenkins:1.2.0
     container_name: jenkins
     restart: always
     ports:
-      - 9100:8080
-      - 50000:50000
+      - "9100:8080"
+      - "50000:50000"
     environment:
-      - JAVA_OPTS="-Xms256m -Xmx512m"
+#      - JAVA_OPTS="-Xms256m -Xmx512m"
       - TZ=Asia/Shanghai
     user: root
     volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-      - /usr/bin/docker:/usr/bin/docker
+#      - /var/run/docker.sock:/var/run/docker.sock
+#      - /usr/bin/docker:/usr/bin/docker
       - /data/jenkins/home:/var/jenkins_home
-      - /usr/lib64/libltdl.so.7:/usr/lib/x86_64-linux-gnu/libltdl.so.7
-      - ./conf/settings.xml:/opt/apache-maven-3.8.1/conf/settings.xml
-      - ./conf/defaults.js:/opt/node-v16.3.0-linux-x64/lib/node_modules/npm/lib/config/defaults.js
-      - ./conf/init.gradle:/opt/gradle-7.0/init.d/init.gradle
+#      - /usr/lib64/libltdl.so.7:/usr/lib/x86_64-linux-gnu/libltdl.so.7
+      - ./conf/settings.xml:/opt/apache-maven-3.8.4/conf/settings.xml
+      - ./conf/defaults.js:/opt/node-v19.7.0-linux-x64/lib/node_modules/npm/lib/config/defaults.js
+      - ./conf/init.gradle:/opt/gradle-8.0.1/init.d/init.gradle
     networks:
-      - build_env_net
+      - jenkins_net
 
 
 networks:
-  build_env_net:
+  jenkins_net:
     external: true
 
 
