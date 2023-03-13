@@ -1,5 +1,5 @@
 # 基础镜像
-FROM jenkins/jenkins:2.277.2-lts
+FROM jenkins/jenkins:2.289.1-lts
 
 # 作者
 MAINTAINER Rong.Jia 852203465@qq.com
