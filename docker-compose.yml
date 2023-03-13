@@ -20,11 +20,11 @@ services:
       - ./conf/defaults.js:/opt/node-v16.3.0-linux-x64/lib/node_modules/npm/lib/config/defaults.js
       - ./conf/init.gradle:/opt/gradle-7.0/init.d/init.gradle
     networks:
-      - build_env_net
+      - jenkins_net
 
 
 networks:
-  build_env_net:
+  jenkins_net:
     external: true
 
 
