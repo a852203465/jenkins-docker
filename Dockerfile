@@ -1,14 +1,14 @@
 # 基础镜像
-FROM jenkins/jenkins:2.387.1-lts-jdk11
+FROM jenkins/jenkins:2.401.3-lts-jdk11
 
 # 作者
 MAINTAINER Rong.Jia 852203465@qq.com
 
 ENV YARN_VERSION 1.22.19
-ENV NODE_VERSION 19.7.0
+ENV NODE_VERSION 18.17.0
 ENV MVN_VERSION 3.9.0
 ENV GRADLE_VERSION 8.0.1
-ENV DOCKER_COMPOSE_VERSION 2.16.0
+ENV DOCKER_COMPOSE_VERSION 2.20.1
 
 # 切换root用户
 USER root
@@ -66,8 +66,8 @@ RUN ln -s /opt/apache-maven-$MVN_VERSION/bin/mvn /usr/bin/mvn \
     && yarn config set registry http://registry.npmmirror.com
 
 # 安装docker
-RUN curl -sSL https://get.daocloud.io/docker | sh \
-    && curl -L https://get.daocloud.io/docker/compose/releases/download/v${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose \
+RUN curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun \
+    && curl -L https://github.com/docker/compose/releases/download/v${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose \
     && chmod +x /usr/local/bin/docker-compose
 
 # 切换jenkins用户
