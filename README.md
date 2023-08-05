@@ -5,7 +5,7 @@ Jenkins 增加 yarn, maven, npm, gradle, node 环境
 docker pull registry.cn-shenzhen.aliyuncs.com/a852203465/jenkins:1.4-jdk11
 
 ## 版本说明
- - JENKINS 2.387.1
+ - JENKINS 2.401.3
  - YARN 1.22.19 
  - NODE 18.17.0 
  - MVN 3.9.0 
