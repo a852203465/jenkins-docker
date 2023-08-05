@@ -12,7 +12,7 @@ services:
       - TZ=Asia/Shanghai
     user: root
     volumes:
-#      - /var/run/docker.sock:/var/run/docker.sock
+      - /var/run/docker.sock:/var/run/docker.sock
 #      - /usr/bin/docker:/usr/bin/docker
       - /data/jenkins/home:/var/jenkins_home
       - ./conf/daemon.json:/etc/docker/daemon.json
