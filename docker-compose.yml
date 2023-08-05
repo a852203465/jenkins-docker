@@ -12,6 +12,7 @@ services:
       - TZ=Asia/Shanghai
     user: root
     volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
       - /data/jenkins/home:/var/jenkins_home
       - ./conf/daemon.json:/etc/docker/daemon.json
       - ./conf/settings.xml:/opt/apache-maven-3.9.0/conf/settings.xml
