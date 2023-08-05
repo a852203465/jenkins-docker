@@ -8,7 +8,7 @@ services:
       - "9100:8080"
       - "50000:50000"
     environment:
-      - JAVA_OPTS="-Xms512m -Xmx1024m"
+#      - JAVA_OPTS="-Xms512m -Xmx1024m"
       - TZ=Asia/Shanghai
     user: root
     volumes:
